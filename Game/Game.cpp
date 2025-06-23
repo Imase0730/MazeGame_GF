@@ -121,8 +121,8 @@ void Game::Render()
 	SetDrawScreen(DX_SCREEN_BACK);
 
 	// 描画対象画像を描画する
-	int width = static_cast<int>(Screen::GAME_WIDTH);
-	int height = static_cast<int>(Screen::GAME_HEIGHT);
+	int width = static_cast<int>(Screen::GAME_WIDTH * Screen::ZOOM_RATIO);
+	int height = static_cast<int>(Screen::GAME_HEIGHT * Screen::ZOOM_RATIO);
 	int x = Screen::WIDTH / 2 - width / 2;
 	int y = Screen::HEIGHT / 2 - height / 2;
 	DrawExtendGraph(x, y, x + width, y + height, m_ghScreen, FALSE);

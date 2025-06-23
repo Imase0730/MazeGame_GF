@@ -38,4 +38,5 @@ public:
 	// ゲーム画面の高さ
 	static constexpr int GAME_HEIGHT = Tile::TILE_SIZE * TileMap::TILEMAP_HEIGHT;
 
+	static constexpr float ZOOM_RATIO = 1.0f;		// ゲーム画面の拡大率
 };
