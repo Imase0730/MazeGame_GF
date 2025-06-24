@@ -84,18 +84,21 @@
     <ClCompile Include="Game\GamePlayScene\GamePlayScene.cpp">
       <Filter>Game\GamePlayScene</Filter>
     </ClCompile>
+    <ClCompile Include="Game\GamePlayScene\TileMap.cpp">
+      <Filter>Game\GamePlayScene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game\Tile.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\TileMap.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="Game\GamePlayScene\GamePlayScene.h">
+      <Filter>Game\GamePlayScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GamePlayScene\Tile.h">
+      <Filter>Game\GamePlayScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GamePlayScene\TileMap.h">
       <Filter>Game\GamePlayScene</Filter>
     </ClInclude>
   </ItemGroup>
