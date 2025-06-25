@@ -80,5 +80,5 @@ bool TileMap::LoadMapData(const wchar_t* filename)
 	// ファイルをクローズ
 	ifs.close();
 
-	return false;
+	return true;
 }
