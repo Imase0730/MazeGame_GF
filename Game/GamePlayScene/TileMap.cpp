@@ -25,6 +25,9 @@ void TileMap::Render(int ghTileset)
             case Tile::Type::Wall:	// •Ç
                 offsetX = 1;
                 break;
+            case Tile::Type::Chest:	// •ó” 
+                offsetX = 2;
+                break;
             default:
                 break;
             }
@@ -70,6 +73,9 @@ bool TileMap::LoadMapData(const wchar_t* filename)
                 break;
             case 1:     // •Ç
                 m_tileMap[i][j] = Tile::Type::Wall;
+                break;
+            case 2:     // •ó” 
+                m_tileMap[i][j] = Tile::Type::Chest;
                 break;
             default:
                 break;

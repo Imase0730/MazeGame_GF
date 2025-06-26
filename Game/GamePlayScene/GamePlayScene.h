@@ -5,6 +5,7 @@
 #pragma once
 
 #include "TileMap.h"
+#include "Player.h"
 
 // クラスの前方宣言
 class Game;
@@ -26,8 +27,14 @@ private:
 	// タイルマップ
 	TileMap m_tileMap;
 
+	// プレイヤー
+	Player m_player;
+
 	// タイルセットの絵のグラフィックハンドル
 	int m_ghTileset;
+
+	// プレイヤーの絵のグラフィックハンドル
+	int m_ghPlayer;
 
 	// メンバ関数の宣言 -------------------------------------------------
 public:

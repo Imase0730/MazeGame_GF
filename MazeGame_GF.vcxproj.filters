@@ -87,6 +87,9 @@
     <ClCompile Include="Game\GamePlayScene\TileMap.cpp">
       <Filter>Game\GamePlayScene</Filter>
     </ClCompile>
+    <ClCompile Include="Game\GamePlayScene\Player.cpp">
+      <Filter>Game\GamePlayScene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -99,6 +102,9 @@
       <Filter>Game\GamePlayScene</Filter>
     </ClInclude>
     <ClInclude Include="Game\GamePlayScene\TileMap.h">
+      <Filter>Game\GamePlayScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GamePlayScene\Player.h">
       <Filter>Game\GamePlayScene</Filter>
     </ClInclude>
   </ItemGroup>
