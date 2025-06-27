@@ -21,6 +21,9 @@ private:
 	// マップデータ
 	Tile::Type m_tileMap[TILEMAP_HEIGHT][TILEMAP_WIDTH];
 
+	// プレイヤーの位置
+	POINT m_playerPosition;
+
 	// メンバ関数の宣言 -------------------------------------------------
 public:
 
@@ -32,5 +35,11 @@ public:
 
 	// マップデータを読み込む関数
 	bool LoadMapData(const wchar_t* filename);
+
+	// プレイヤーの位置を取得する関数
+	POINT GetPlayerPosition() const { return m_playerPosition; }
+
+	// 指定した位置のタイルを取得する関数
+	Tile::Type GetTile(int x, int y) const { return m_tileMap[y][x]; }
 
 };

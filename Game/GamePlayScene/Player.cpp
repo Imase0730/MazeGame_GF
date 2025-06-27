@@ -1,45 +1,68 @@
-#include "Player.h"
+ï»¿#include "Player.h"
 #include "Tile.h"
 
-// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 Player::Player()
 	: m_position{ 0, 0 }
 {
 }
 
-// XVˆ—
-void Player::Update(int keyTrigger)
+// æ›´æ–°å‡¦ç†
+void Player::Update(int keyTrigger, TileMap* pTileMap)
 {
-	// ãƒL[‰Ÿ‚³‚ê‚½
-	if (keyTrigger & PAD_INPUT_UP)
+	// ä¸Šã‚­ãƒ¼æŠ¼ã•ã‚ŒãŸ
+	if ( (keyTrigger & PAD_INPUT_UP)
+	  && (IsMovable(pTileMap, m_position.x, m_position.y - 1))
+	   ) 
 	{
 		m_position.y--;
 	}
 
-	// ‰ºƒL[‰Ÿ‚³‚ê‚½
-	if (keyTrigger & PAD_INPUT_DOWN)
+	// ä¸‹ã‚­ãƒ¼æŠ¼ã•ã‚ŒãŸ
+	if ( (keyTrigger & PAD_INPUT_DOWN)
+	  && (IsMovable(pTileMap, m_position.x, m_position.y + 1))
+	   )
 	{
 		m_position.y++;
 	}
 
-	// ¶ƒL[‰Ÿ‚³‚ê‚½
-	if (keyTrigger & PAD_INPUT_LEFT)
+	// å·¦ã‚­ãƒ¼æŠ¼ã•ã‚ŒãŸ
+	if ( (keyTrigger & PAD_INPUT_LEFT)
+	  && (IsMovable(pTileMap, m_position.x - 1, m_position.y))
+	   )
 	{
 		m_position.x--;
 	}
 
-	// ‰EƒL[‰Ÿ‚³‚ê‚½
-	if (keyTrigger & PAD_INPUT_RIGHT)
+	// å³ã‚­ãƒ¼æŠ¼ã•ã‚ŒãŸ
+	if ( (keyTrigger & PAD_INPUT_RIGHT)
+	  && (IsMovable(pTileMap, m_position.x + 1, m_position.y))
+	   )
 	{
 		m_position.x++;
 	}
 }
 
-// •`‰æˆ—
+// æç”»å‡¦ç†
 void Player::Render(int ghPlayer)
 {
-	// ƒvƒŒƒCƒ„[‚Ì•`‰æ
+	// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®æç”»
 	DrawGraph(m_position.x * Tile::TILE_SIZE, m_position.y * Tile::TILE_SIZE
 		, ghPlayer, TRUE);
+}
+
+// æŒ‡å®šã—ãŸä½ç½®ãŒç§»å‹•ã§ãã‚‹ã‹èª¿ã¹ã‚‹é–¢æ•°
+// ç”»é¢å¤–ã€€âœ–
+// å£ã€€ã€€ã€€âœ–
+bool Player::IsMovable(TileMap* pTileMap, int x, int y)
+{
+	// ç”»é¢å¤–ï¼Ÿ
+	if ((x < 0) || (x >= TileMap::TILEMAP_WIDTH)) return false;
+	if ((y < 0) || (y >= TileMap::TILEMAP_HEIGHT)) return false;
+
+	// å£ï¼Ÿ
+	if (pTileMap->GetTile(x, y) == Tile::Type::Wall) return false;
+
+	return true;
 }
 

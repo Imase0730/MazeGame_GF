@@ -6,6 +6,7 @@
 // コンストラクタ
 TileMap::TileMap()
 	: m_tileMap{}
+    , m_playerPosition{ 0, 0 }
 {
 }
 
@@ -76,6 +77,12 @@ bool TileMap::LoadMapData(const wchar_t* filename)
                 break;
             case 2:     // 宝箱
                 m_tileMap[i][j] = Tile::Type::Chest;
+                break;
+            case 3:     // プレイヤー
+                // プレイヤーの位置を記録する
+                m_playerPosition = POINT{ j, i };
+                // 床で登録する
+                m_tileMap[i][j] = Tile::Type::Floor;
                 break;
             default:
                 break;

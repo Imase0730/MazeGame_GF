@@ -32,13 +32,16 @@ void GamePlayScene::Initialize()
 
 	// マップデータを読み込む
 	m_tileMap.LoadMapData(L"Resources/MapData/mapData.csv");
+
+	// プレイヤーの位置を設定する
+	m_player.SetPosition(m_tileMap.GetPlayerPosition());
 }
 
 // 更新処理
 void GamePlayScene::Update(int keyCondition, int keyTrigger)
 {
 	// プレイヤーの更新
-	m_player.Update(keyTrigger);
+	m_player.Update(keyTrigger, &m_tileMap);
 }
 
 // 描画処理
