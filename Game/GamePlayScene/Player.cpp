@@ -15,6 +15,8 @@ void Player::Update(int keyTrigger, TileMap* pTileMap)
 	  && (IsMovable(pTileMap, m_position.x, m_position.y - 1))
 	   ) 
 	{
+		// 移動元を壁にする
+		pTileMap->SetTile(m_position, Tile::Type::Wall);
 		m_position.y--;
 	}
 
@@ -23,6 +25,8 @@ void Player::Update(int keyTrigger, TileMap* pTileMap)
 	  && (IsMovable(pTileMap, m_position.x, m_position.y + 1))
 	   )
 	{
+		// 移動元を壁にする
+		pTileMap->SetTile(m_position, Tile::Type::Wall);
 		m_position.y++;
 	}
 
@@ -31,6 +35,8 @@ void Player::Update(int keyTrigger, TileMap* pTileMap)
 	  && (IsMovable(pTileMap, m_position.x - 1, m_position.y))
 	   )
 	{
+		// 移動元を壁にする
+		pTileMap->SetTile(m_position, Tile::Type::Wall);
 		m_position.x--;
 	}
 
@@ -39,6 +45,8 @@ void Player::Update(int keyTrigger, TileMap* pTileMap)
 	  && (IsMovable(pTileMap, m_position.x + 1, m_position.y))
 	   )
 	{
+		// 移動元を壁にする
+		pTileMap->SetTile(m_position, Tile::Type::Wall);
 		m_position.x++;
 	}
 }

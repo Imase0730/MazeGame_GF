@@ -24,6 +24,9 @@ public:
 	// 位置を設定する関数
 	void SetPosition(POINT position) { m_position = position; }
 
+	// 位置を取得する関数
+	POINT GetPosition() const { return m_position; }
+
 	// 指定した位置が移動できるか調べる関数
 	bool IsMovable(TileMap* pTileMap, int x, int y);
 

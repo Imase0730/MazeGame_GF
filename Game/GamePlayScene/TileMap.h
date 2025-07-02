@@ -42,4 +42,13 @@ public:
 	// 指定した位置のタイルを取得する関数
 	Tile::Type GetTile(int x, int y) const { return m_tileMap[y][x]; }
 
+	// 指定した位置のタイルを取得する関数 <--- 関数のオーバーロード
+	Tile::Type GetTile(POINT position) const { return m_tileMap[position.y][position.x]; }
+
+	// 指定した位置にタイルを設定する関数
+	void SetTile(POINT position, Tile::Type tile) { m_tileMap[position.y][position.x] = tile; }
+
+	// 宝箱の数を取得する関数
+	int GetChestCount() const;
+
 };

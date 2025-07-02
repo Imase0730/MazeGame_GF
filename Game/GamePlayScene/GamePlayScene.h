@@ -10,13 +10,31 @@
 // クラスの前方宣言
 class Game;
 
-// タイトルシーン
+// ゲームプレイシーン
 class GamePlayScene
 {
+	// 列挙型の宣言 -------------------------------------------------
+private:
+
+	// ゲームの状態
+	enum class GameState
+	{
+		GamePlay,		// ゲームプレイ中
+		GameOver,		// ゲームオーバー
+		GameClear,		// ゲームクリア
+	};
 
 	// クラス定数の宣言 -------------------------------------------------
 public:
 
+	// フォントサイズ
+	static constexpr int FONT_SIZE = 50;
+
+	// ゲームオーバーの文字列
+	static constexpr wchar_t GAMEOVER[] = L"Game Over";
+
+	// ゲームクリアの文字列
+	static constexpr wchar_t GAMECLEAR[] = L"Game Clear";
 
 	// データメンバの宣言 -----------------------------------------------
 private:
@@ -35,6 +53,9 @@ private:
 
 	// プレイヤーの絵のグラフィックハンドル
 	int m_ghPlayer;
+
+	// ゲームの状態
+	GameState m_gameState;
 
 	// メンバ関数の宣言 -------------------------------------------------
 public:
@@ -56,5 +77,13 @@ public:
 
 	// 終了処理
 	void Finalize();
+
+private:
+
+	// ゲームクリアか調べる関数
+	bool IsGameClear();
+
+	// ゲームオーバーか調べる関数
+	bool IsGameOver();
 
 };

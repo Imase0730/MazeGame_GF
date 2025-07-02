@@ -95,3 +95,19 @@ bool TileMap::LoadMapData(const wchar_t* filename)
 
 	return true;
 }
+
+// •ó” ‚Ì”‚ğæ“¾‚·‚éŠÖ”
+int TileMap::GetChestCount() const
+{
+    int cnt = 0;
+
+    for (int i = 0; i < TILEMAP_HEIGHT; i++)
+    {
+        for (int j = 0; j < TILEMAP_WIDTH; j++)
+        {
+            if (m_tileMap[i][j] == Tile::Type::Chest) cnt++;
+        }
+    }
+
+    return cnt;
+}
