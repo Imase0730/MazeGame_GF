@@ -6,6 +6,7 @@
 
 #include "TileMap.h"
 #include "Player.h"
+#include "Game/Blink.h"
 
 // クラスの前方宣言
 class Game;
@@ -56,6 +57,9 @@ private:
 
 	// ゲームの状態
 	GameState m_gameState;
+
+	// 点滅オブジェクト
+	Blink m_blink;
 
 	// メンバ関数の宣言 -------------------------------------------------
 public:

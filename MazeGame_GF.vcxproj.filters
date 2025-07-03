@@ -90,6 +90,9 @@
     <ClCompile Include="Game\GamePlayScene\Player.cpp">
       <Filter>Game\GamePlayScene</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Blink.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -106,6 +109,12 @@
     </ClInclude>
     <ClInclude Include="Game\GamePlayScene\Player.h">
       <Filter>Game\GamePlayScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Blink.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\KeyRepeat.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

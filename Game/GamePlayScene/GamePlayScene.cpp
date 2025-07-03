@@ -5,6 +5,7 @@
 #include "GamePlayScene.h"
 #include "Game/Game.h"
 #include "Game/Screen.h"
+#include "Game/KeyRepeat.h"
 
 // コンストラクタ
 GamePlayScene::GamePlayScene(Game* pGame)
@@ -14,6 +15,7 @@ GamePlayScene::GamePlayScene(Game* pGame)
 	, m_ghTileset{ -1 }
 	, m_ghPlayer{ -1 }
 	, m_gameState{ GameState::GamePlay }
+	, m_blink{ 60 }
 {
 
 }
@@ -42,8 +44,14 @@ void GamePlayScene::Initialize()
 // 更新処理
 void GamePlayScene::Update(int keyCondition, int keyTrigger)
 {
+	// 点滅の更新処理
+	m_blink.Update();
+
+	// キーリピートを取得
+	int keyRepeat = KeyRepeat::GetKey(keyCondition);
+
 	// プレイヤーの更新
-	m_player.Update(keyTrigger, &m_tileMap);
+	m_player.Update(keyRepeat, &m_tileMap);
 
 	// プレイヤーの位置に宝箱がある？
 	if (m_tileMap.GetTile(m_player.GetPosition()) == Tile::Type::Chest)
@@ -74,8 +82,20 @@ void GamePlayScene::Render()
 	// タイルマップを描画する
 	m_tileMap.Render(m_ghTileset);
 
+	//// 点滅処理
+	//if (m_blink.IsBlinkOn())
+	//{
+	//	// プレイヤーの描画をする
+	//	m_player.Render(m_ghPlayer);
+	//}
+
+	int col = 100 + static_cast<int>(155 * m_blink.GetBlinkRate());
+	SetDrawBright(col, col, col);
+
 	// プレイヤーの描画をする
 	m_player.Render(m_ghPlayer);
+
+	SetDrawBright(255, 255, 255);
 
 	// フォントのサイズを設定する
 	SetFontSize(FONT_SIZE);
